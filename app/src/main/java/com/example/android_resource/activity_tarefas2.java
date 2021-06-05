@@ -25,12 +25,12 @@ public class activity_tarefas2 extends AppCompatActivity {
         dadosAppT2 = new DadosAppT2();
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listview2);
+        setContentView(R.layout.activity_tarefas2);
 
         estadoBoton=true;
         boton=findViewById(R.id.Button);
-        TFeito = findViewById(R.id.textView3);
-        cajadetexto= findViewById(R.id.textView);
+        TFeito = findViewById(R.id.textView4);
+        cajadetexto= findViewById(R.id.textView5);
 
         cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
         TFeito.setText("Por fazer");
@@ -46,7 +46,6 @@ public class activity_tarefas2 extends AppCompatActivity {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
                 if (action == KeyEvent.ACTION_DOWN) {
-
 
                     dadosAppT2.avancar();
                     dadosAppT2.marcarFeito();

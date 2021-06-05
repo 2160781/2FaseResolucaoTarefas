@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ public class activity_tarefas extends AppCompatActivity  {
 
         estadoBoton=true;
         boton=findViewById(R.id.Button);
-        TFeito = findViewById(R.id.textView3);
+        TFeito = findViewById(R.id.textView4);
         cajadetexto= findViewById(R.id.textView);
 
         cajadetexto.setText(dadosApp.getTextoPassoReceita());
