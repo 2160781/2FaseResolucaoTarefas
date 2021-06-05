@@ -1,11 +1,11 @@
 package com.example.android_resource;
 
-public class PassoReceita {
+public class Tarefas {
 
     private String texto;
     private Boolean feito;
 
-    PassoReceita(String texto) {
+    Tarefas(String texto) {
         this.texto = texto;
         this.feito = false;
     }

@@ -23,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     boolean estadoBotao;
     TextView CaixadeTexto;
-    ImageView ver_imagem;
     Button botao;
     private DadosApp dadosApp;
     private int positionTarefa;
+
+
 
     ListView listView;
 
@@ -76,13 +77,15 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean listviewTarefas(){
 
+
+
         setContentView( R.layout.activity_listview);
 
 
         listView = findViewById(R.id.listview);
 
         String[] values = new String[] {
-                "1. Receita de bolo", "2. exemplo"
+                "1. Receita de bolo " , "2. Plantação de trigo", "3. Voltar para a Main"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -91,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -98,16 +103,23 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(position == 0){
-                    positionTarefa = position;
+                    positionTarefa = 0;
                     dadosApp = new DadosApp();
                     Intent Tarefa1 = new Intent(view.getContext(),activity_tarefas.class);
                     startActivity(Tarefa1);
                 }
-                if(position == 1){
-                    positionTarefa = position;
+
+                if (position == 1) {
+                    positionTarefa = 1;
                     dadosApp = new DadosApp();
-                    Intent Tarefa2 = new Intent(view.getContext(),activity_tarefas.class);
+                    Intent Tarefa2 = new Intent(view.getContext(), activity_tarefas.class);
                     startActivity(Tarefa2);
+                }
+
+                if(position == 2){
+                    positionTarefa = 2;
+                    Intent inicio = new Intent(view.getContext(),MainActivity.class);
+                    startActivity(inicio);
                 }
             }
         });

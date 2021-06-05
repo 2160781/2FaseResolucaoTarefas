@@ -1,8 +1,5 @@
 package com.example.android_resource;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +7,7 @@ import java.util.List;
 
 public class DadosApp extends MainActivity {
 
-    private List<PassoReceita> listaPassos;
+    private List<Tarefas> listaPassos;
     private int posicao;
 
 
@@ -19,28 +16,27 @@ public class DadosApp extends MainActivity {
 
         int tarefa = getPositionTarefa();
 
-
-        if( tarefa == 0){
-
-            listaPassos = new ArrayList<>();
-            listaPassos.add(new PassoReceita("1. Passo --> Preparação de ingredientes"));
-            listaPassos.add(new PassoReceita("2. Passo --> Mistura de ingredientes"));
-            listaPassos.add(new PassoReceita("3. Passo --> Coloque o bolo no forno"));
-            listaPassos.add(new PassoReceita("4. Passo --> Finalizar o bolo"));
-            posicao = 1;
+        listaPassos = new ArrayList<>();
+            if(tarefa == 0) {
+                listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
+                listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
+                listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
+                listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
+                posicao = 1;
+            }else{
+                if(tarefa == 1){
+                    listaPassos.add(new Tarefas("1. Passo --> Compra de terreno"));
+                    listaPassos.add(new Tarefas("2. Passo --> Preparação de terreno"));
+                    listaPassos.add(new Tarefas("3. Passo --> Plantar trigo"));
+                    listaPassos.add(new Tarefas("4. Passo --> Obter colheita"));
+                    posicao = 5;
+                }
+            }
 
         }
-      /*  listaPassos = new ArrayList<>();
-
-        listaPassos.add(new PassoReceita("1. Passo --> Preparação de ingredientes"));
-        listaPassos.add(new PassoReceita("2. Passo --> Mistura de ingredientes"));
-        listaPassos.add(new PassoReceita("3. Passo --> Coloque o bolo no forno"));
-        listaPassos.add(new PassoReceita("4. Passo --> Finalizar o bolo"));
-        posicao = 1;*/
 
 
 
-    }
 
 
     public String getTextoPassoReceita() {
@@ -51,10 +47,6 @@ public class DadosApp extends MainActivity {
     public void avancar() {
         if (posicao < listaPassos.size()){
             posicao++;
-/*
-            if (posicao == listaPassos.size()){
-                listviewTarefas();
-            }*/
         }
     }
 

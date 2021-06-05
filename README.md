@@ -1,5 +1,5 @@
-# ResourceListView4.2
-App android resource + List View + atualizar Inf 4.2
+# 2FaseResolucaoTarefas
+
 Esta app apresenta as mesmas funcionalidades da app "resourcelistview", mo entanto é mais
 complexa.
 A listView apresenta um processo com 5 passos, sobre fazer um bolo.
