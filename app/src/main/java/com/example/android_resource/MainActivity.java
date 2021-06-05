@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView CaixadeTexto;
     Button botao;
     private DadosApp dadosApp;
+    private DadosAppT2 dadosAppT2;
     private int positionTarefa;
 
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        setContentView( R.layout.activity_listview);
+        setContentView(R.layout.activity_listview);
 
 
         listView = findViewById(R.id.listview);
@@ -100,19 +101,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-
                 if(position == 0){
                     positionTarefa = 0;
                     dadosApp = new DadosApp();
-                    Intent Tarefa1 = new Intent(view.getContext(),activity_tarefas.class);
+                    Intent Tarefa1 = new Intent(view.getContext(),
+                            activity_tarefas.class);
                     startActivity(Tarefa1);
                 }
 
                 if (position == 1) {
                     positionTarefa = 1;
-                    dadosApp = new DadosApp();
-                    Intent Tarefa2 = new Intent(view.getContext(), activity_tarefas.class);
+                    dadosAppT2 = new DadosAppT2();
+                    Intent Tarefa2 = new Intent(view.getContext(),
+                            activity_tarefas2.class);
                     startActivity(Tarefa2);
                 }
 

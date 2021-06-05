@@ -1,16 +1,15 @@
 package com.example.android_resource;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class activity_tarefas extends AppCompatActivity  {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class activity_tarefas2 extends AppCompatActivity {
 
     boolean estadoBoton;
     Button boton;
@@ -19,21 +18,21 @@ public class activity_tarefas extends AppCompatActivity  {
     TextView cajadetexto;
     ImageView ver_imagen;
 
-    private DadosApp dadosApp;
+    private DadosAppT2 dadosAppT2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        dadosApp = new DadosApp();
+        dadosAppT2 = new DadosAppT2();
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarefas);
+        setContentView(R.layout.activity_listview2);
 
         estadoBoton=true;
         boton=findViewById(R.id.Button);
         TFeito = findViewById(R.id.textView3);
         cajadetexto= findViewById(R.id.textView);
 
-        cajadetexto.setText(dadosApp.getTextoPassoReceita());
+        cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
         TFeito.setText("Por fazer");
 
 
@@ -49,15 +48,15 @@ public class activity_tarefas extends AppCompatActivity  {
                 if (action == KeyEvent.ACTION_DOWN) {
 
 
-                    dadosApp.avancar();
-                    dadosApp.marcarFeito();
-                    cajadetexto.setText(dadosApp.getTextoPassoReceita());
+                    dadosAppT2.avancar();
+                    dadosAppT2.marcarFeito();
+                    cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
 
                     estadoBoton= false;
 
-                    if(dadosApp.getPosicao() == dadosApp.getSizeListaPassos()){
+                    if(dadosAppT2.getPosicao() == dadosAppT2.getSizeListaPassos()){
                         TFeito.setText("Feito");
-                     }else{
+                    }else{
                         TFeito.setText("Por fazer");
                     }
                 }
@@ -65,8 +64,8 @@ public class activity_tarefas extends AppCompatActivity  {
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 if (action == KeyEvent.ACTION_DOWN) {
 
-                    dadosApp.retroceder();
-                    cajadetexto.setText(dadosApp.getTextoPassoReceita());
+                    dadosAppT2.retroceder();
+                    cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
 
                     estadoBoton= false;
 
@@ -84,8 +83,4 @@ public class activity_tarefas extends AppCompatActivity  {
                 return super.dispatchKeyEvent(event);
         }
     }
-
-
-
-
 }

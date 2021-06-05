@@ -11,27 +11,15 @@ public class DadosApp extends MainActivity {
     private int posicao;
 
 
+
     // singleton
     public DadosApp() {
 
-        int tarefa = getPositionTarefa();
-
         listaPassos = new ArrayList<>();
-
-        if(tarefa == 0){
-            listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
-            listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
-            listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
-            listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
-        }else{
-            if(tarefa == 1){
-                listaPassos.add(new Tarefas("1. Passo --> Compra de terreno"));
-                listaPassos.add(new Tarefas("2. Passo --> Preparação de terreno"));
-                listaPassos.add(new Tarefas("3. Passo --> Plantar trigo"));
-                listaPassos.add(new Tarefas("4. Passo --> Obter colheita"));
-            }
-        }
-
+        listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
+        listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
+        listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
+        listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
         posicao = 1;
 
         }
@@ -66,6 +54,5 @@ public class DadosApp extends MainActivity {
         public void marcarFeito() {
         listaPassos.get(posicao - 1).setFeito(true);
     }
-
 
 }
