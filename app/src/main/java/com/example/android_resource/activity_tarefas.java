@@ -21,13 +21,10 @@ public class activity_tarefas extends AppCompatActivity  {
 
     private DadosApp dadosApp;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dadosApp = new DadosApp();
 
-        /* informação da receita */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarefas);
         estadoBoton=true;
@@ -37,6 +34,7 @@ public class activity_tarefas extends AppCompatActivity  {
 
         cajadetexto.setText(dadosApp.getTextoPassoReceita());
         TFeito.setText("Por fazer");
+
 
     }
 
@@ -61,7 +59,6 @@ public class activity_tarefas extends AppCompatActivity  {
                      }else{
                         TFeito.setText("Por fazer");
                     }
-
                 }
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
@@ -75,7 +72,13 @@ public class activity_tarefas extends AppCompatActivity  {
                 }
 
                 return true;
+            case KeyEvent.KEYCODE_ENTER:
+                if (action == KeyEvent.ACTION_DOWN) {
+                    Intent inicio = new Intent(this,MainActivity.class);
+                    startActivity(inicio);
+                }
 
+                return true;
             default:
                 return super.dispatchKeyEvent(event);
         }

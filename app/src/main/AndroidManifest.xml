@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".AtivaRechonecimentoVoz"></activity>
         <activity android:name=".Q_R_CODE"></activity>
+        <activity android:name=".DadosApp"></activity>
     </application>
 
 </manifest>

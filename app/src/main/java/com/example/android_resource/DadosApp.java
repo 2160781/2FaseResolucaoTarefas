@@ -17,21 +17,22 @@ public class DadosApp extends MainActivity {
         int tarefa = getPositionTarefa();
 
         listaPassos = new ArrayList<>();
-            if(tarefa == 0) {
-                listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
-                listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
-                listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
-                listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
-                posicao = 1;
-            }else{
-                if(tarefa == 1){
-                    listaPassos.add(new Tarefas("1. Passo --> Compra de terreno"));
-                    listaPassos.add(new Tarefas("2. Passo --> Preparação de terreno"));
-                    listaPassos.add(new Tarefas("3. Passo --> Plantar trigo"));
-                    listaPassos.add(new Tarefas("4. Passo --> Obter colheita"));
-                    posicao = 5;
-                }
+
+        if(tarefa == 0){
+            listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
+            listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
+            listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
+            listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
+        }else{
+            if(tarefa == 1){
+                listaPassos.add(new Tarefas("1. Passo --> Compra de terreno"));
+                listaPassos.add(new Tarefas("2. Passo --> Preparação de terreno"));
+                listaPassos.add(new Tarefas("3. Passo --> Plantar trigo"));
+                listaPassos.add(new Tarefas("4. Passo --> Obter colheita"));
             }
+        }
+
+        posicao = 1;
 
         }
 
