@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
     Button botao;
     private DadosApp dadosApp;
     private DadosAppT2 dadosAppT2;
-    private int positionTarefa;
-
+    private int positionTarefa = 3;
+    private String Tarefa1;
+    private String Tarefa2;
 
 
 
@@ -38,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(positionTarefa == 0){
+            Tarefa1 = " Feito";
+        }else{
+            if(positionTarefa == 1){
+                Tarefa2 = " Feito";
+            }else {
+                Tarefa1 = " Por Fazer";
+                Tarefa2 = " Por Fazer";
+            }
+        }
         listview();
 
     }
@@ -87,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listview);
 
         String[] values = new String[] {
-                "1. Receita de bolo " , "2. Plantação de trigo", "3. Voltar para a Main"
+                "1. Receita de bolo -" + Tarefa1 , "2. Plantação de trigo -" + Tarefa2, "3. Voltar para a Main"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -102,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if(position == 0){
-                    positionTarefa = 0;
+                    positionTarefa = 1;
                     dadosApp = new DadosApp();
                     Intent Tarefa1 = new Intent(view.getContext(),
                             activity_tarefas.class);
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (position == 1) {
-                    positionTarefa = 1;
+                    positionTarefa = 2;
                     dadosAppT2 = new DadosAppT2();
                     Intent Tarefa2 = new Intent(view.getContext(),
                             activity_tarefas2.class);
