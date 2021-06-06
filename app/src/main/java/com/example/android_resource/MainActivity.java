@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     ListView listView;
 
     @Override
@@ -79,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean listviewTarefas(){
 
 
-
         setContentView(R.layout.activity_listview);
 
 
@@ -94,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 android.R.id.text1,values);
 
         listView.setAdapter(adapter);
-
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -173,5 +173,6 @@ public class MainActivity extends AppCompatActivity {
         return  positionTarefa;
 
     }
+
 
 }
