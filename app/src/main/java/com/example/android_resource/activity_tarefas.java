@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class activity_tarefas extends AppCompatActivity  {
+public class activity_tarefas extends AppCompatActivity {
 
     boolean estadoBoton;
     Button boton;
@@ -17,6 +17,7 @@ public class activity_tarefas extends AppCompatActivity  {
     boolean estadoFeito;
     TextView cajadetexto;
     ImageView ver_imagen;
+
 
     private DadosApp dadosApp;
 
@@ -44,7 +45,8 @@ public class activity_tarefas extends AppCompatActivity  {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
         switch (keyCode) {
-            case KeyEvent.KEYCODE_VOLUME_UP:
+            //Seguinte
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
                 if (action == KeyEvent.ACTION_DOWN) {
 
 
@@ -56,12 +58,14 @@ public class activity_tarefas extends AppCompatActivity  {
 
                     if(dadosApp.getPosicao() == dadosApp.getSizeListaPassos()){
                         TFeito.setText("Feito");
+
                      }else{
                         TFeito.setText("Por fazer");
                     }
                 }
                 return true;
-            case KeyEvent.KEYCODE_VOLUME_DOWN:
+            //Anterior
+            case KeyEvent.KEYCODE_DPAD_LEFT:
                 if (action == KeyEvent.ACTION_DOWN) {
 
                     dadosApp.retroceder();
@@ -72,9 +76,20 @@ public class activity_tarefas extends AppCompatActivity  {
                 }
 
                 return true;
+            //Marcar passo como "Feito"
+            case KeyEvent.KEYCODE_DPAD_UP:
+                if (action == KeyEvent.ACTION_DOWN) {
+                    //Colocar a posição da tarefa "Feito"
+
+
+                }
+
+                return true;
             case KeyEvent.KEYCODE_ENTER:
                 if (action == KeyEvent.ACTION_DOWN) {
-                    Intent inicio = new Intent(this,MainActivity.class);
+
+                    Intent inicio = new Intent(this,
+                            MainActivity.class);
                     startActivity(inicio);
                 }
 

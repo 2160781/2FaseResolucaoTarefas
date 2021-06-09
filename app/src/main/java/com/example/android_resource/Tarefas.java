@@ -5,9 +5,11 @@ public class Tarefas {
     private String texto;
     private Boolean feito;
 
+
     Tarefas(String texto) {
         this.texto = texto;
         this.feito = false;
+
     }
 
 

@@ -13,6 +13,7 @@ public class DadosAppT2 extends MainActivity{
 
     public DadosAppT2() {
 
+
         listaPassos2 = new ArrayList<>();
         listaPassos2.add(new Tarefas2("1. Passo --> Compra de terreno"));
         listaPassos2.add(new Tarefas2("2. Passo --> Preparação de terreno"));
@@ -47,6 +48,7 @@ public class DadosAppT2 extends MainActivity{
     public int getSizeListaPassos()  {
         return listaPassos2.size();
     }
+
 
     public void marcarFeito() {
         listaPassos2.get(posicao - 1).setFeito(true);
