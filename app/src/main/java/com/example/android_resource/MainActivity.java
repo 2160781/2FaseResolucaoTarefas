@@ -26,12 +26,11 @@ public class MainActivity extends AppCompatActivity {
     Button botao;
     private DadosApp dadosApp;
     private DadosAppT2 dadosAppT2;
-    private int positionTarefa = 3;
-    private String Tarefa1;
-    private String Tarefa2;
 
-
-
+    private int Passosfeitos1 = 0;
+    private int Passosfeitos2 = 0;
+    private int Passosfeitos1Total = 4;
+    private int Passosfeitos2ToTal = 4;
 
     ListView listView;
 
@@ -40,19 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        if(positionTarefa == 0){
-            Tarefa1 = " Feito";
-        }else{
-            if(positionTarefa == 1){
-                Tarefa2 = " Feito";
-            }else {
-                Tarefa1 = " Por Fazer";
-                Tarefa2 = " Por Fazer";
-            }
-        }
         listview();
-
     }
 
 
@@ -100,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listview);
 
         String[] values = new String[] {
-                "1. Receita de bolo -" + Tarefa1 , "2. Plantação de trigo -" + Tarefa2, "3. Voltar para a Main"
+                "1. Receita de bolo -" + Passosfeitos1 + " de " + Passosfeitos1Total
+                , "2. Plantação de trigo - " + Passosfeitos2 + " de "
+                + Passosfeitos2ToTal,
+                "3. Voltar para a Main"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -115,23 +105,22 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if(position == 0){
-                    positionTarefa = 1;
                     dadosApp = new DadosApp();
+                    Passosfeitos1 = dadosApp.getPassosFeitos1();
                     Intent Tarefa1 = new Intent(view.getContext(),
                             activity_tarefas.class);
                     startActivity(Tarefa1);
                 }
 
                 if (position == 1) {
-                    positionTarefa = 2;
                     dadosAppT2 = new DadosAppT2();
+                    Passosfeitos2 = dadosAppT2.getPassosFeitos2();
                     Intent Tarefa2 = new Intent(view.getContext(),
                             activity_tarefas2.class);
                     startActivity(Tarefa2);
                 }
 
                 if(position == 2){
-                    positionTarefa = 2;
                     Intent inicio = new Intent(view.getContext(),MainActivity.class);
                     startActivity(inicio);
                 }
@@ -154,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
                 if (action == KeyEvent.ACTION_DOWN) {
-
                     listview();
                 }
                 return true;
@@ -181,11 +169,5 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity( anterior );
     }
-
-    public int getPositionTarefa(){
-        return  positionTarefa;
-
-    }
-
 
 }

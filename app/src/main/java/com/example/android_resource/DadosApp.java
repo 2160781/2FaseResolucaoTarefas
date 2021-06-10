@@ -9,6 +9,7 @@ public class DadosApp extends MainActivity {
 
     private List<Tarefas> listaPassos;
     private int posicao;
+    private int PassosFeitos1 = 0;
 
 
 
@@ -47,12 +48,17 @@ public class DadosApp extends MainActivity {
     public int getPosicao()  {
         return posicao;
     }
+
     public int getSizeListaPassos()  {
         return listaPassos.size();
     }
 
-        public void marcarFeito() {
+    public void marcarFeito() {
         listaPassos.get(posicao - 1).setFeito(true);
+    }
+
+    public int getPassosFeitos1()  {
+        return PassosFeitos1;
     }
 
 }

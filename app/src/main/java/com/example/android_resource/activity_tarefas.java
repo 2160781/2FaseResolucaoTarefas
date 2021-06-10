@@ -13,8 +13,6 @@ public class activity_tarefas extends AppCompatActivity {
 
     boolean estadoBoton;
     Button boton;
-    TextView TFeito;
-    boolean estadoFeito;
     TextView cajadetexto;
     ImageView ver_imagen;
 
@@ -30,11 +28,11 @@ public class activity_tarefas extends AppCompatActivity {
 
         estadoBoton=true;
         boton=findViewById(R.id.Button);
-        TFeito = findViewById(R.id.textView4);
+        ver_imagen=findViewById(R.id.imageView3);
         cajadetexto= findViewById(R.id.textView);
 
         cajadetexto.setText(dadosApp.getTextoPassoReceita());
-        TFeito.setText("Por fazer");
+
 
 
     }
@@ -44,6 +42,7 @@ public class activity_tarefas extends AppCompatActivity {
     public boolean dispatchKeyEvent( KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
+        int PassosFeitos1 = dadosApp.getPassosFeitos1();
         switch (keyCode) {
             //Seguinte
             case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -56,12 +55,6 @@ public class activity_tarefas extends AppCompatActivity {
 
                     estadoBoton= false;
 
-                    if(dadosApp.getPosicao() == dadosApp.getSizeListaPassos()){
-                        TFeito.setText("Feito");
-
-                     }else{
-                        TFeito.setText("Por fazer");
-                    }
                 }
                 return true;
             //Anterior
@@ -80,7 +73,8 @@ public class activity_tarefas extends AppCompatActivity {
             case KeyEvent.KEYCODE_DPAD_UP:
                 if (action == KeyEvent.ACTION_DOWN) {
                     //Colocar a posição da tarefa "Feito"
-
+                    ver_imagen.setImageResource(R.drawable.certo);
+                    PassosFeitos1++;
 
                 }
 

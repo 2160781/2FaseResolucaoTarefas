@@ -29,11 +29,11 @@ public class activity_tarefas2 extends AppCompatActivity {
 
         estadoBoton=true;
         boton=findViewById(R.id.Button);
-        TFeito = findViewById(R.id.textView4);
+        ver_imagen = findViewById(R.id.imageView);
         cajadetexto= findViewById(R.id.textView5);
 
         cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
-        TFeito.setText("Por fazer");
+        ver_imagen.setImageResource(R.drawable.errado);
 
 
     }
@@ -43,8 +43,9 @@ public class activity_tarefas2 extends AppCompatActivity {
     public boolean dispatchKeyEvent( KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
+        int PassosFeitos2 = dadosAppT2.getPassosFeitos2();
         switch (keyCode) {
-            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
                 if (action == KeyEvent.ACTION_DOWN) {
 
                     dadosAppT2.avancar();
@@ -53,20 +54,25 @@ public class activity_tarefas2 extends AppCompatActivity {
 
                     estadoBoton= false;
 
-                    if(dadosAppT2.getPosicao() == dadosAppT2.getSizeListaPassos()){
-                        TFeito.setText("Feito");
-                    }else{
-                        TFeito.setText("Por fazer");
-                    }
                 }
                 return true;
-            case KeyEvent.KEYCODE_VOLUME_DOWN:
+            case KeyEvent.KEYCODE_DPAD_LEFT:
                 if (action == KeyEvent.ACTION_DOWN) {
 
                     dadosAppT2.retroceder();
                     cajadetexto.setText(dadosAppT2.getTextoPassoReceita());
 
                     estadoBoton= false;
+
+                }
+
+                return true;
+            //Marcar passo como "Feito"
+            case KeyEvent.KEYCODE_DPAD_UP:
+                if (action == KeyEvent.ACTION_DOWN) {
+                    //Colocar a posição da tarefa "Feito"
+                    ver_imagen.setImageResource(R.drawable.certo);
+                    PassosFeitos2++;
 
                 }
 
